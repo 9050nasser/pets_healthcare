@@ -1,0 +1,68 @@
+{
+ "creation": "2022-02-20 16:55:22.664840",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "healthcare_service_unit_type",
+  "healthcare_service_unit",
+  "check_in",
+  "left",
+  "check_out",
+  "invoiced"
+ ],
+ "fields": [
+  {
+   "fieldname": "check_in",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Check In"
+  },
+  {
+   "default": "0",
+   "fieldname": "left",
+   "fieldtype": "Check",
+   "label": "Left",
+   "search_index": 1
+  },
+  {
+   "fieldname": "check_out",
+   "fieldtype": "Datetime",
+   "label": "Check Out"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced"
+  },
+  {
+   "fieldname": "healthcare_service_unit_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Healthcare Service Unit Type",
+   "options": "Healthcare Service Unit Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "healthcare_service_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Healthcare Service Unit ",
+   "options": "Healthcare Service Unit",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-02-21 13:29:49.734337",
+ "modified_by": "Administrator",
+ "module": "Pets Healthcare",
+ "name": "Patient Occupancy",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "restrict_to_domain": "Healthcare",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,506 @@
+{
+ "allow_copy": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "beta": 1,
+ "creation": "2016-04-21 10:53:44.637684",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "inpatient_record",
+  "section_break_1",
+  "naming_series",
+  "appointment",
+  "type",
+  "patient",
+  "pet_owner",
+  "patient_name",
+  "patient_age",
+  "patient_sex",
+  "company",
+  "column_break_6",
+  "practitioner",
+  "visit_department",
+  "encounter_date",
+  "encounter_time",
+  "posting_date",
+  "posting_time",
+  "invoiced",
+  "vital_signs_section",
+  "patient_vital_signs",
+  "sb_symptoms",
+  "symptoms_select",
+  "symptoms",
+  "symptoms_in_print",
+  "physical_examination",
+  "diagnosis_select",
+  "diagnosis",
+  "diagnosis_in_print",
+  "codification",
+  "codification_table",
+  "sb_drug_prescription",
+  "drug_prescription",
+  "consumables_section",
+  "items",
+  "sb_test_prescription",
+  "lab_test_prescription",
+  "sample_collection_section",
+  "sample",
+  "sb_procedures",
+  "procedure_prescription",
+  "vaccination_section",
+  "patient_vaccination",
+  "medical_record_section",
+  "medical_record",
+  "more_information_section",
+  "encounter_comment",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "patient.inpatient_record",
+   "fieldname": "inpatient_record",
+   "fieldtype": "Link",
+   "label": "Inpatient Record",
+   "options": "Inpatient Record",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "HLC-ENC-.YYYY.-",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Appointment",
+   "options": "Patient Appointment",
+   "search_index": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Type",
+   "no_copy": 1,
+   "options": "Appointment Type",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fetch_from": "inpatient_record.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_age",
+   "fieldtype": "Data",
+   "label": "Patient Age",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "patient.sex",
+   "fieldname": "patient_sex",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "no_copy": 1,
+   "options": "\nMale\nFemale\nOther",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner",
+   "reqd": 1
+  },
+  {
+   "default": "\u0642\u0633\u0645 \u0627\u0644\u0631\u0639\u0627\u064a\u0629 \u0627\u0644\u0635\u062d\u064a\u0629",
+   "fieldname": "visit_department",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Medical Department",
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "encounter_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Encounter Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "encounter_time",
+   "fieldtype": "Time",
+   "label": "Encounter Time",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced",
+   "no_copy": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_symptoms",
+   "fieldtype": "Section Break",
+   "label": "Encounter Impression"
+  },
+  {
+   "fieldname": "symptoms_select",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Complaints",
+   "no_copy": 1,
+   "options": "Complaint",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "symptoms",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "no_copy": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "symptoms_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "physical_examination",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "diagnosis_select",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Diagnosis",
+   "no_copy": 1,
+   "options": "Diagnosis",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "diagnosis",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "no_copy": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "diagnosis_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "codification",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Medical Coding"
+  },
+  {
+   "fieldname": "codification_table",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Medical Coding",
+   "options": "Codification Table"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_drug_prescription",
+   "fieldtype": "Section Break",
+   "label": "Medication"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "drug_prescription",
+   "fieldtype": "Table",
+   "label": "Medication",
+   "options": "Drug Prescription"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_test_prescription",
+   "fieldtype": "Section Break",
+   "label": "Investigations"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "lab_test_prescription",
+   "fieldtype": "Table",
+   "label": "Investigations",
+   "options": "Lab Prescription"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_procedures",
+   "fieldtype": "Section Break",
+   "label": "Procedures"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "procedure_prescription",
+   "fieldtype": "Table",
+   "label": "Procedures",
+   "no_copy": 1,
+   "options": "Procedure Prescription"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "encounter_comment",
+   "fieldtype": "Text Editor",
+   "ignore_xss_filter": 1,
+   "label": "Review Details",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Patient Encounter",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "patient.pet_owner",
+   "fieldname": "pet_owner",
+   "fieldtype": "Link",
+   "label": "Pet Owner",
+   "options": "Pet Owner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Consumables",
+   "options": "Patient Encounter Item"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "vital_signs_section",
+   "fieldtype": "Section Break",
+   "label": "Vital Signs"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "consumables_section",
+   "fieldtype": "Section Break",
+   "label": "Consumables"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "medical_record_section",
+   "fieldtype": "Section Break",
+   "label": "Medical Record"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "medical_record",
+   "fieldtype": "Table",
+   "label": "Medical Record",
+   "options": "Medical Record"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "more_information_section",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sample_collection_section",
+   "fieldtype": "Section Break",
+   "label": "Sample Collection"
+  },
+  {
+   "fieldname": "sample",
+   "fieldtype": "Table",
+   "label": "Sample",
+   "options": "Sample"
+  },
+  {
+   "fieldname": "patient_vital_signs",
+   "fieldtype": "Table",
+   "label": "Patient Vital Signs",
+   "options": "Patient Vital Signs"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "patient_vaccination",
+   "fieldtype": "Table",
+   "label": "Patient Vaccination",
+   "options": "Patient Vaccination"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "vaccination_section",
+   "fieldtype": "Section Break",
+   "label": "Vaccination"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2022-10-24 14:41:24.884256",
+ "modified_by": "Administrator",
+ "module": "Pets Healthcare",
+ "name": "Patient Encounter",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Healthcare  Practitioner",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Practitioner",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Physician",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Casher",
+   "share": 1
+  }
+ ],
+ "restrict_to_domain": "Healthcare",
+ "search_fields": "patient, practitioner, visit_department, encounter_date, encounter_time",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "patient",
+ "track_changes": 1,
+ "track_seen": 1
+}

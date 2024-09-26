@@ -1,0 +1,233 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-02-20 15:59:17.196887",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "naming_series",
+  "patient",
+  "patient_name",
+  "pet_owner",
+  "gender",
+  "blood_group",
+  "mobile",
+  "column_break_8",
+  "status",
+  "scheduled_date",
+  "admitted_datetime",
+  "expected_discharge",
+  "discharge_date",
+  "references",
+  "cb_admission",
+  "admission_practitioner",
+  "admission_encounter",
+  "cb_discharge",
+  "discharge_practitioner",
+  "check_out",
+  "sb_inpatient_occupancy",
+  "patient_occupancy",
+  "sb_discharge_note",
+  "discharge_note",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "HLC-INP-.YYYY.-"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "patient.sex",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fetch_from": "patient.blood_group",
+   "fetch_if_empty": 1,
+   "fieldname": "blood_group",
+   "fieldtype": "Select",
+   "label": "Blood Group",
+   "options": "\nA Positive\nA Negative\nAB Positive\nAB Negative\nB Positive\nB Negative\nO Positive\nO Negative"
+  },
+  {
+   "fetch_from": "patient.mobile",
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nAdmitted\nDischarged"
+  },
+  {
+   "default": "Today",
+   "fieldname": "scheduled_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Admission Schedule Date",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "admitted_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Admitted Datetime"
+  },
+  {
+   "fieldname": "expected_discharge",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expected Discharge"
+  },
+  {
+   "fieldname": "discharge_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Discharge Date"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "references",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "cb_admission",
+   "fieldtype": "Column Break",
+   "label": "Admission"
+  },
+  {
+   "fieldname": "admission_practitioner",
+   "fieldtype": "Link",
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner"
+  },
+  {
+   "fieldname": "admission_encounter",
+   "fieldtype": "Link",
+   "label": "Patient Encounter",
+   "options": "Patient Encounter"
+  },
+  {
+   "fieldname": "cb_discharge",
+   "fieldtype": "Column Break",
+   "label": "Discharge"
+  },
+  {
+   "fieldname": "discharge_practitioner",
+   "fieldtype": "Link",
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner"
+  },
+  {
+   "fieldname": "sb_inpatient_occupancy",
+   "fieldtype": "Section Break",
+   "label": "patient Occupancy"
+  },
+  {
+   "depends_on": "eval:doc.status != \"Admission Scheduled\"",
+   "fieldname": "sb_discharge_note",
+   "fieldtype": "Section Break",
+   "label": "Discharge Note"
+  },
+  {
+   "fieldname": "discharge_note",
+   "fieldtype": "Text Editor"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Patient Occupancies",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_occupancy",
+   "fieldtype": "Table",
+   "label": "Patient Occupancy",
+   "options": "Patient Occupancy"
+  },
+  {
+   "fetch_from": "patient.pet_owner",
+   "fieldname": "pet_owner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Pet Owner",
+   "options": "Pet Owner"
+  },
+  {
+   "fieldname": "check_out",
+   "fieldtype": "Datetime",
+   "label": "Check Out"
+  }
+ ],
+ "modified": "2022-02-21 14:21:45.148943",
+ "modified_by": "Administrator",
+ "module": "Pets Healthcare",
+ "name": "Patient Occupancies",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Pets Healthcare Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Physician",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Healthcare",
+ "search_fields": "patient",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "patient",
+ "track_changes": 1
+}
